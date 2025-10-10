@@ -9,7 +9,7 @@ body {
     margin: 0;
     width: 100%;
     overflow-x: hidden;
-    height: 300vh;
+    height: auto;
     overflow-y: scroll; 
     font-family: "Vollkorn", sans-serif;
 }
@@ -41,7 +41,7 @@ h1 {
 }
 
 h3 {
-    font-weight: bolder;
+    font-weight: 700;
     font-size: 36pt;
     margin-top: 25%;
     margin-bottom: 1%;
@@ -56,7 +56,7 @@ p {
 
 h2 {
     font-size: 42pt;
-    font-weight: bold;
+    font-weight: 700;
     font-family: "Telex", sans-serif;
 }
 
@@ -282,4 +282,31 @@ form input[type="submit"] {
     text-decoration: none;
     color: inherit;
     align-self: center;
+}
+
+@media (max-width: 1050px) {
+
+    #faq{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width:100vw;
+        height:auto;
+    }
+    .esquerda h2{
+        margin-bottom:10px;
+    }
+    #faq h2{
+        margin-bottom:0;
+    }
+    #faq img{
+        width:40%;
+    }
+
+    p{
+        font-size:14pt;
+    }
+    #formulario h2{
+        margin-left:10%;
+    }
 }
