@@ -1,31 +1,31 @@
 document.addEventListener('mousemove', (e) => {
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+    const posicaoX = e.clientX / window.innerWidth;
+    const posicaoY = e.clientY / window.innerHeight;
     
-    const elementosParallax = document.querySelectorAll('h1, h2, h3, p, #botao');
+    const elementosComEfeito = document.querySelectorAll('h1, h2, h3, p, #botao');
     
-    elementosParallax.forEach(elemento => {
+    elementosComEfeito.forEach(elemento => {
         const velocidade = 0.02;
-        const x = (mouseX - 0.5) * velocidade * 100;
-        const y = (mouseY - 0.5) * velocidade * 100;
+        const moverX = (posicaoX - 0.5) * velocidade * 100;
+        const moverY = (posicaoY - 0.5) * velocidade * 100;
         
-        elemento.style.transform = `translate(${x}px, ${y}px)`;
+        elemento.style.transform = `translate(${moverX}px, ${moverY}px)`;
     });
 });
 
 document.addEventListener('mouseleave', () => {
-    const elementosParallax = document.querySelectorAll('h1, h2, h3, p, #botao');
-    elementosParallax.forEach(elemento => {
+    const elementosComEfeito = document.querySelectorAll('h1, h2, h3, p, #botao');
+    elementosComEfeito.forEach(elemento => {
         elemento.style.transform = 'translate(0px, 0px)';
     });
 });
 
-const opcoesObservadorFaq = {
+const configuracaoFaq = {
     threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
     rootMargin: '-25% 0px -25% 0px'
 };
 
-const opcoesObservadorForm = {
+const configuracaoFormulario = {
     threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
     rootMargin: '-25% 0px -25% 0px'
 };
@@ -33,8 +33,7 @@ const opcoesObservadorForm = {
 const observadorFaq = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
         const elemento = entrada.target;
-        const proporcaoIntersecao = entrada.intersectionRatio;
-        const visibilidade = proporcaoIntersecao;
+        const visibilidade = entrada.intersectionRatio;
         
         if (entrada.isIntersecting) {
             if (visibilidade > 0.5) {
@@ -52,13 +51,12 @@ const observadorFaq = new IntersectionObserver((entradas) => {
             elemento.style.opacity = 0;
         }
     });
-}, opcoesObservadorFaq);
+}, configuracaoFaq);
 
-const observadorForm = new IntersectionObserver((entradas) => {
+const observadorFormulario = new IntersectionObserver((entradas) => {
     entradas.forEach(entrada => {
         const formulario = entrada.target;
-        const proporcaoIntersecao = entrada.intersectionRatio;
-        const visibilidade = proporcaoIntersecao;
+        const visibilidade = entrada.intersectionRatio;
         
         if (entrada.isIntersecting) {
             if (visibilidade > 0.5) {
@@ -76,18 +74,42 @@ const observadorForm = new IntersectionObserver((entradas) => {
             formulario.style.opacity = 0;
         }
     });
-}, opcoesObservadorForm);
+}, configuracaoFormulario);
+
+function controlarMusica() {
+    const secoes = document.querySelectorAll('section');
+    const alturaTela = window.innerHeight;
+    
+    secoes.forEach(secao => {
+        const limites = secao.getBoundingClientRect();
+        const noCentro = limites.top < alturaTela / 2 && limites.bottom > alturaTela / 2;
+        
+        if (noCentro) {
+            const musica = document.getElementById('bg' + secao.id);
+            if (musica) {
+                musica.volume = 0.1;
+                musica.play();
+            }
+        } else {
+            const musica = document.getElementById('bg' + secao.id);
+            if (musica) {
+                musica.pause();
+                musica.currentTime = 0;
+            }
+        }
+    });
+}
 
 window.addEventListener('scroll', () => {
     const secaoFaq = document.getElementById('faq');
     const secaoFormulario = document.getElementById('formulario');
     
     const elementosFaq = document.querySelectorAll('.esquerda, .meio, .direita');
-    const retanguloFaq = secaoFaq.getBoundingClientRect();
-    const alturaViewport = window.innerHeight;
+    const areaFaq = secaoFaq.getBoundingClientRect();
+    const alturaTela = window.innerHeight;
     
-    const alturaVisivelFaq = Math.min(retanguloFaq.bottom, alturaViewport) - Math.max(retanguloFaq.top, 0);
-    const visibilidadeFaq = Math.min(alturaVisivelFaq / alturaViewport, 1);
+    const alturaVisivelFaq = Math.min(areaFaq.bottom, alturaTela) - Math.max(areaFaq.top, 0);
+    const visibilidadeFaq = Math.min(alturaVisivelFaq / alturaTela, 1);
     
     elementosFaq.forEach(elemento => {
         if (visibilidadeFaq > 0.5) {
@@ -106,9 +128,9 @@ window.addEventListener('scroll', () => {
     });
     
     const formulario = document.querySelector('#formulario form');
-    const retanguloForm = secaoFormulario.getBoundingClientRect();
-    const alturaVisivelForm = Math.min(retanguloForm.bottom, alturaViewport) - Math.max(retanguloForm.top, 0);
-    const visibilidadeForm = Math.min(alturaVisivelForm / alturaViewport, 1);
+    const areaFormulario = secaoFormulario.getBoundingClientRect();
+    const alturaVisivelForm = Math.min(areaFormulario.bottom, alturaTela) - Math.max(areaFormulario.top, 0);
+    const visibilidadeForm = Math.min(alturaVisivelForm / alturaTela, 1);
     
     if (visibilidadeForm > 0.5) {
         formulario.classList.add('visivel');
@@ -123,6 +145,8 @@ window.addEventListener('scroll', () => {
         formulario.classList.add('oculto');
         formulario.style.opacity = 0;
     }
+    
+    controlarMusica();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -132,7 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     const formulario = document.querySelector('#formulario form');
-    observadorForm.observe(formulario);
+    observadorFormulario.observe(formulario);
+    
+    controlarMusica();
 });
 
 document.getElementById('botao').addEventListener('click', (e) => {
@@ -145,52 +171,52 @@ document.getElementById('botao').addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.querySelector('form');
     
-    function validarEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
+    function emailValido(email) {
+        const formato = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return formato.test(email);
     }
 
-    function validarTelefone(telefone) {
-        const regex = /^9[1236]\d{7}$/;
-        return regex.test(telefone.replace(/\s/g, ''));
+    function telefoneValido(telefone) {
+        const formato = /^9[1236]\d{7}$/;
+        return formato.test(telefone.replace(/\s/g, ''));
     }
 
-    function validarIdade(idade) {
+    function idadeValida(idade) {
         return idade >= 16 && idade <= 100;
     }
 
-    function validarNome(nome) {
+    function nomeValido(nome) {
         return nome.length >= 2 && /^[a-zA-ZÀ-ÿ\s]+$/.test(nome);
     }
 
     formulario.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const pnome = document.getElementById('pnome').value;
-        const lnome = document.getElementById('lnome').value;
+        const primeiroNome = document.getElementById('pnome').value;
+        const ultimoNome = document.getElementById('lnome').value;
         const email = document.getElementById('email').value;
         const telefone = document.getElementById('telefone').value;
         const idade = document.getElementById('idade').value;
         
         let erros = [];
 
-        if (!validarNome(pnome)) {
+        if (!nomeValido(primeiroNome)) {
             erros.push('O nome precisa ter pelo menos 2 letras');
         }
 
-        if (!validarNome(lnome)) {
+        if (!nomeValido(ultimoNome)) {
             erros.push('O sobrenome precisa ter pelo menos 2 letras');
         }
 
-        if (!validarEmail(email)) {
+        if (!emailValido(email)) {
             erros.push('Email inválido');
         }
 
-        if (!validarTelefone(telefone)) {
+        if (!telefoneValido(telefone)) {
             erros.push('Telefone inválido (formato: 912 345 678)');
         }
 
-        if (!validarIdade(parseInt(idade))) {
+        if (!idadeValida(parseInt(idade))) {
             erros.push('Idade deve ser entre 16 e 100 anos');
         }
 
@@ -202,17 +228,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    const telefoneInput = document.getElementById('telefone');
-    telefoneInput.addEventListener('input', function(e) {
-        let valor = e.target.value.replace(/\D/g, '');
-        if (valor.length > 0) {
-            valor = valor.replace(/^(\d{3})(\d{3})(\d{3})$/, '$1 $2 $3');
+    const campoTelefone = document.getElementById('telefone');
+    campoTelefone.addEventListener('input', function(e) {
+        let numero = e.target.value.replace(/\D/g, '');
+        if (numero.length > 0) {
+            numero = numero.replace(/^(\d{3})(\d{3})(\d{3})$/, '$1 $2 $3');
         }
-        e.target.value = valor;
+        e.target.value = numero;
     });
 
-    const idadeInput = document.getElementById('idade');
-    idadeInput.addEventListener('input', function(e) {
+    const campoIdade = document.getElementById('idade');
+    campoIdade.addEventListener('input', function(e) {
         if (e.target.value < 0) {
             e.target.value = 0;
         }
