@@ -141,3 +141,92 @@ if (s) {
 
     observer.observe(s);
 }
+
+
+/*  Slide-in first, then count  */
+const block  = document.querySelector('.middle-container');
+const counterEl = document.querySelector('.counter-text');
+
+window.addEventListener('load', () => {
+    setTimeout(() => block.classList.add('slide-in'), 150); // slight delay for paint
+
+    setTimeout(() => {               // count starts after slide-in finishes (~800 ms)
+        if (!counterEl) return;
+        const target   = 4500;
+        const duration = 1700;       // 2-second run
+        const step     = target / (duration / 16);
+        let current    = 0;
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+                counterEl.textContent = '4500+';
+            } else {
+                counterEl.textContent = Math.floor(current);
+            }
+        }, 16);
+    }, 900);
+});
+
+/*  0 → 120+  and  0 → 5000+  after 60 % of .container3 is visible  */
+function runCount(elId, target, suffix, dur = 1700) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    const step = target / (dur / 16);
+    let n = 0;
+    const t = setInterval(() => {
+        n += step;
+        if (n >= target) { clearInterval(t); el.textContent = target + suffix; }
+        else el.textContent = Math.floor(n);
+    }, 16);
+}
+
+const container3 = document.querySelector('.container3');
+if (container3) {   
+    new IntersectionObserver((e, o) => {
+        if (e[0].intersectionRatio >= 0.40) {   // 60 % visible
+            runCount('stat1', 120, '+');
+            runCount('stat3', 5000, '+');
+            o.unobserve(container3);            // run once
+        }
+    }, { threshold: 0.40 }).observe(container3);
+}
+
+
+/*  30 % in  →  100 % out  */
+const textObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(en => {
+            if (en.intersectionRatio >= 0.30) {
+                en.target.classList.add('in-view');      // show
+            }
+            if (en.intersectionRatio === 0) {
+                en.target.classList.remove('in-view');   // hide only when fully out
+            }
+        });
+    },
+    { threshold: [0, 0.30, 1] }   // watch 0 %, 30 % and 100 %
+);
+
+document.querySelectorAll('.text-container, .right-box').forEach(box => {
+    const txt = box.querySelector('.main-text');
+    if (txt) textObserver.observe(txt);
+});
+
+const textObserver2 = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(en => {
+            if (en.intersectionRatio >= 0.30) {
+                en.target.classList.add('in-view');
+            }
+            if (en.intersectionRatio === 0) {
+                en.target.classList.remove('in-view');
+            }
+        });
+    },
+    { threshold: [0, 0.30, 1] }
+);
+
+document.querySelectorAll('.main-text2').forEach(el => textObserver2.observe(el));
