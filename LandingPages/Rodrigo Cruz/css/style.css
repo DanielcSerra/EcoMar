@@ -1,0 +1,333 @@
+/* ========================================
+   YOUR EXISTING STAYLES – UNTOUCHED
+   ======================================== */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    background-color:#222c3d;
+}
+.main-container {
+    width: 100vw;
+    height: 120vh;
+    position: relative;
+    overflow: hidden;
+
+     /* keep every existing rule – just add: */
+    padding-bottom: 10vh;   /* extra height at bottom */
+    position: relative;     /* already had this, but safe-guard */
+}
+
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    
+}
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3D4F6E;
+    opacity: 0.75;
+    z-index: -1;
+    
+}
+
+.video-fade {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40vh;                
+    background: linear-gradient(to bottom,
+                                transparent 0%,
+                                #222c3d 100%);
+    pointer-events: none;
+    z-index: -1;                 
+}
+
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    z-index: -3;
+}
+.container2 {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin: 30px;
+    position: relative;
+    z-index: 1;
+}
+.left-content {
+    padding: 20px 0;
+}
+.top-container {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+.text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.main-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: white;
+    font-size: 4.1rem;
+    line-height: 1.2;
+    margin: 0;
+}
+.counter-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #F4C542;
+    font-size: 7.60rem;
+    line-height: 1.1;
+    margin: 0.5rem 0;
+}
+.middle-container {
+    margin-bottom: 2rem;
+}
+.support-text {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 1.425rem;
+    line-height: 1.4;
+    margin: 0;
+}
+.bottom-container {
+    margin-top: 2rem;
+}
+.support-btn {
+    width: 280px;
+    height: 64px;
+    background-color: #F4C542;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.625rem;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.support-btn:hover {
+    background-color: #ffe54d;
+    transform: scale(1.1);
+    color: #000;
+}
+.right-content {
+    /* Empty container for future content */
+}
+
+/* ---------- RESPONSIVE – YOUR ORIGINAL RULES ---------- */
+@media (max-width: 1200px) {
+    .main-text { font-size: 3rem; }
+    .counter-text { font-size: 3.25rem; }
+    .support-text { font-size: 1.5rem; }
+    .support-btn { width: 260px; height: 60px; font-size: 1.5rem; }
+}
+@media (max-width: 992px) {
+    .container2 { width: calc(100% - 40px); height: calc(100% - 40px); margin: 20px; }
+    .main-text { font-size: 2.5rem; }
+    .counter-text { font-size: 2.75rem; }
+    .support-text { font-size: 1.375rem; }
+    .support-btn { width: 240px; height: 56px; font-size: 1.375rem; }
+    .left-content { padding: 15px 0; }
+}
+@media (max-width: 768px) {
+    .main-container { height: 100vh; }
+    .container2 { width: calc(100% - 30px); height: calc(100% - 30px); margin: 15px; }
+    .main-text { font-size: 2rem; }
+    .counter-text { font-size: 2.25rem; }
+    .support-text { font-size: 1.25rem; }
+    .support-btn { width: 220px; height: 52px; font-size: 1.25rem; }
+    .top-container, .middle-container { margin-bottom: 1.5rem; }
+    .text-group { gap: 0.25rem; }
+}
+@media (max-width: 576px) {
+    .main-text { font-size: 1.75rem; }
+    .counter-text { font-size: 2rem; }
+    .support-text { font-size: 1.125rem; }
+    .support-btn { width: 200px; height: 48px; font-size: 1.125rem; }
+    .left-content { padding: 10px 0; }
+    .top-container, .middle-container { margin-bottom: 1.25rem; }
+}
+@media (max-width: 480px) {
+    .main-text { font-size: 1.5rem; }
+    .counter-text { font-size: 1.75rem; }
+    .support-text { font-size: 1rem; }
+    .support-btn { width: 180px; height: 44px; font-size: 1rem; }
+    .container2 { width: calc(100% - 20px); height: calc(100% - 20px); margin: 10px; }
+}
+@media (min-width: 1400px) {
+    .container2 { max-width: 1400px; margin: 30px auto; }
+    .left-content { padding: 30px 0; }
+    .top-container { margin-bottom: 2.5rem; }
+    .middle-container { margin-bottom: 2.5rem; }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+    .main-container { height: 120vh; }
+    .main-text { font-size: 1.75rem; }
+    .counter-text { font-size: 2rem; }
+    .support-text { font-size: 1rem; }
+    .support-btn { width: 200px; height: 48px; font-size: 1.125rem; }
+    .top-container, .middle-container { margin-bottom: 1rem; }
+}
+
+
+.section2 {
+    width: 100vw;
+    min-height: 120vh;
+    background-color: #4A628A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+        /* … every earlier rule … */
+    border-radius: 65px 65px 0 0;
+    margin-top: -10vh;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    transform-origin: 50% 0;
+    will-change: transform;
+}
+.container3 {
+    width: 95%;
+    max-width: 1400px;
+    height: 120vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+.section3 {
+    width: 100vw;
+    min-height: 110vh;
+    background-color: #7AB2D3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.container4 {
+    width: 95%;
+    max-width: 1400px;
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+
+/* when JS flips the flag – grow to normal size */
+.section2.anim-in {
+    transform: scale(1);
+}
+
+.top-section {
+    height: 20%;
+    width: 70%;
+    display: flex;
+    gap:10%;
+    padding: 40px 0px 20px 0px;
+}
+.stat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4vw, 52px);
+    color: #fff;
+    line-height: 1;
+}
+.stat-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(24px, 3vw, 40px);
+    color: #fff;
+    margin-top: 5px;
+}
+.bottom-section {
+    align-items: center;
+    height: 80%;
+    display: flex;
+    gap: 20px;
+}
+.left-section {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+.right-section {
+    width: 30%;
+}
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+}
+.main-text.section2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 56px);
+    color: #fff;
+    text-align: left;
+}
+.sub-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    color: #fff;
+    line-height: 1.5;
+}
+
+/* ---------- Responsive tweaks for section 2 ---------- */
+@media (max-width: 768px) {
+    .section2 { min-height: 100vh; padding: 10px; }
+    .container3 { height: auto; min-height: 90vh; }
+    .top-section { height: auto; flex-direction: column; gap: 30px; padding: 30px 20px; }
+    .bottom-section { flex-direction: column; height: auto; }
+    .left-section, .right-section { width: 100%; }
+    .left-section { padding: 20px 0; }
+    .main-text.section2 { font-size: clamp(28px, 6vw, 42px); }
+    .sub-text { font-size: clamp(16px, 3vw, 22px); }
+}
+@media (max-width: 480px) {
+    .stat-number { font-size: clamp(24px, 8vw, 36px); }
+    .stat-label { font-size: clamp(18px, 6vw, 28px); }
+    .main-text.section2 { font-size: clamp(24px, 7vw, 36px); }
+    .sub-text { font-size: clamp(14px, 4vw, 18px); }
+}

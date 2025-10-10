@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoMar – Proteção dos Oceanos</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <div class="loader">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+    </div>
+    <header class="site-nav" data-reveal>
+      <div class="site-nav__inner">
+        <a href="#top" class="site-nav__brand" aria-label="EcoMar">
+          <span class="site-nav__brand-text"
+            ><img src="assets/logo.png" alt=""
+          /></span>
+        </a>
+        <nav class="site-nav__menu" aria-label="Principal">
+          <a href="#campanhas">Campanhas</a>
+          <a href="#importancia">Importância</a>
+          <a href="#voluntariar">Voluntariar</a>
+          <a href="#voluntariar" class="site-nav__menu-cta">Quero ajudar</a>
+        </nav>
+        <a href="#voluntariar" class="site-nav__cta">Quero ajudar</a>
+        <button
+          class="site-nav__toggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <header class="hero" id="top">
+      <div class="hero__background">
+        <canvas id="hero-globe-canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content-wrapper">
+        <div class="hero__content" id="hero-content" data-reveal>
+          <h1>Queres ajudar a proteger o oceano?</h1>
+          <p>
+            Junta-te à missão EcoMar e descobre como podes fazer a diferença.
+          </p>
+          <button class="cta" data-scroll-target="#voluntariar">
+            Quero ser Voluntário
+          </button>
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Explora</span>
+        <span class="hero__scroll-icon"></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section--how" id="campanhas">
+        <div class="section__header" data-reveal style="--reveal-delay: 0s">
+          <h2>Campanhas de Limpeza em Curso</h2>
+          <p>
+            Junta-te a ações locais para limpar praias e zonas costeiras — cada
+            iniciativa mede o impacto em tempo real e mostra como a tua ajuda
+            transforma a costa.
+          </p>
+        </div>
+        <div class="timeline">
+          <article
+            class="timeline__item"
+            data-reveal
+            style="--reveal-delay: 0.05s"
+          >
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__step">Ação Local</span>
+              <h3>Limpar Praia da Rocha</h3>
+              <p class="campaign-location">Algarve, Portugal</p>
+
+              <div class="campaign-progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="62"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Progresso Praia da Rocha"
+                >
+                  <div class="progress__fill" data-progress="62"></div>
+                </div>
+                <div class="progress__meta">
+                  <span><strong>62%</strong> — 62/100 sacos recolhidos</span
+                  ><span class="campaign-volunteers">48 voluntários</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="timeline__item"
+            data-reveal
+            style="--reveal-delay: 0.12s"
+          >
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__step">Ação Local</span>
+              <h3>Limpar Praia de Matosinhos</h3>
+              <p class="campaign-location">Matosinhos, Porto</p>
+
+              <div class="campaign-progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="41"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Progresso Praia de Matosinhos"
+                >
+                  <div class="progress__fill" data-progress="41"></div>
+                </div>
+                <div class="progress__meta">
+                  <span><strong>41%</strong> — 82/200 sacos recolhidos</span
+                  ><span class="campaign-volunteers">120 voluntários</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article
+            class="timeline__item"
+            data-reveal
+            style="--reveal-delay: 0.19s"
+          >
+            <div class="timeline__marker"></div>
+            <div class="timeline__content">
+              <span class="timeline__step">Ação Local</span>
+              <h3>Limpar Costa da Caparica</h3>
+              <p class="campaign-location">Costa da Caparica, Lisboa</p>
+
+              <div class="campaign-progress">
+                <div
+                  class="progress"
+                  role="progressbar"
+                  aria-valuenow="78"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Progresso Costa da Caparica"
+                >
+                  <div class="progress__fill" data-progress="78"></div>
+                </div>
+                <div class="progress__meta">
+                  <span><strong>78%</strong> — 117/150 sacos recolhidos</span
+                  ><span class="campaign-volunteers">90 voluntários</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--benefits" id="importancia">
+        <div class="section__header" data-reveal style="--reveal-delay: 0s">
+          <h2>Qual é a importância da limpeza das praias e dos oceanos?</h2>
+          <p>
+            A poluição marinha afeta a vida marinha, a saúde humana e as
+            economias costeiras. Limpar praias reduz microplásticos, protege
+            espécies e previne que resíduos entrem no oceano aberto — cada ação
+            local tem impacto real para o ecossistema e para as comunidades.
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <article
+            class="benefit-panel"
+            data-reveal
+            style="--reveal-delay: 0.05s"
+          >
+            <header>
+              <span>Preparação & Segurança</span>
+              <strong>Antes da ação</strong>
+            </header>
+            <ul>
+              <li>
+                Briefing de segurança e identificação dos tipos de resíduos
+              </li>
+              <li>Fornecimento de luvas, sacos e equipamento de proteção</li>
+              <li>Orientação prática sobre triagem e separação no local</li>
+            </ul>
+          </article>
+          <article
+            class="benefit-panel"
+            data-reveal
+            style="--reveal-delay: 0.12s"
+          >
+            <header>
+              <span>Ação no Terreno</span>
+              <strong>Durante a ação</strong>
+            </header>
+            <ul>
+              <li>Coordenação por equipas locais e rotas otimizadas</li>
+              <li>
+                Contagem de sacos, registo de pontos e monitorização do impacto
+              </li>
+              <li>
+                Registo de espécies afetadas e recolha de dados para ciência
+                cidadã
+              </li>
+            </ul>
+          </article>
+          <article
+            class="benefit-panel"
+            data-reveal
+            style="--reveal-delay: 0.19s"
+          >
+            <header>
+              <span>Impacto &amp; Comunidade</span>
+              <strong>Depois da ação</strong>
+            </header>
+            <ul>
+              <li>Dados partilhados com investigadores e autoridades locais</li>
+              <li>Relatórios públicos de impacto e comunicação à comunidade</li>
+              <li>Oportunidades de continuidade em programas de conservação</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--form" id="voluntariar">
+        <div class="form-layout" data-reveal style="--reveal-delay: 0s">
+          <div class="form-layout__intro">
+            <h2>Pronto para mergulhar na missão?</h2>
+            <p>
+              Envia-nos o formulário e receberás automaticamente um e‑mail com
+              os passos para te registares como voluntário no nosso site -
+              inclui o calendário e instruções para participares em eventos e
+              campanhas.
+            </p>
+            <ul class="form-layout__highlights">
+              <li>
+                Recebe um e‑mail automático com os passos de registo (24h úteis)
+              </li>
+              <li>
+                Depois de registares, podes inscrever‑te nas campanhas ativas
+              </li>
+              <li>Acesso a formação contínua para voluntários</li>
+            </ul>
+          </div>
+          <form class="form" data-reveal style="--reveal-delay: 0.1s">
+            <div class="form__grid">
+              <label class="form__field">
+                <span>Nome *</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="O teu nome"
+                  required
+                />
+              </label>
+              <label class="form__field">
+                <span>Email *</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="o_teu@email.com"
+                  required
+                />
+              </label>
+              <label class="form__field">
+                <span>Localidade</span>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Cidade ou região"
+                />
+              </label>
+              <label class="form__field">
+                <span>Disponibilidade</span>
+                <select name="availability">
+                  <option value="">Seleciona uma opção</option>
+                  <option value="semana">Durante a semana</option>
+                  <option value="fim-semana">Fins de semana</option>
+                  <option value="flexivel">Sou flexível</option>
+                </select>
+              </label>
+            </div>
+            <label class="form__field form__field--full">
+              <span>Como conheceste a EcoMar?</span>
+              <input
+                type="text"
+                name="source"
+                placeholder="Instagram, recomendação, escola…"
+              />
+            </label>
+            <label class="form__field form__field--full">
+              <span>Mensagem</span>
+              <textarea
+                name="message"
+                rows="3"
+                placeholder="Partilha expectativas ou pergunta-nos o que quiseres."
+              ></textarea>
+            </label>
+            <div class="form__actions">
+              <label class="form__check">
+                <input type="checkbox" name="newsletter" />
+                <span>Quero receber atualizações EcoMar.</span>
+              </label>
+              <button type="submit" class="cta">Enviar</button>
+            </div>
+            <p class="form__success" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 <strong>EcoMar</strong> - Todos os direitos reservados.</p>
+    </footer>
+
+    <button
+      id="toTop"
+      class="to-top"
+      aria-label="Voltar ao topo"
+      title="Voltar ao topo"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 5l7 7-1.41 1.41L13 9.83V20h-2V9.83L6.41 13.41 5 12l7-7z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+          "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="js/main.js"></script>
+    <script type="module" src="js/planet.js"></script>
+  </body>
+</html>
