@@ -1,0 +1,507 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@font-face {
+  font-family: "Baloo-Regular";
+  src: url("assets/fonts/Pacifico-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #0d2d36;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+h1 {
+  font-size: clamp(50px, 8vw, 80px);
+  margin: 10px 0 30px;
+  line-height: 80px;
+  font-family: "Baloo", sans-serif;
+}
+h2 {
+  font-size: clamp(30px, 8vw, 40px);
+  color: white;
+  font-family: "Baloo", sans-serif;
+}
+p {
+  font-size: 18px;
+  color: white;
+  font-family: "Baloo", sans-serif;
+}
+
+/*AREA 1*/
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/imagem13.jpg);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0d2d36 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.logo {
+  width: 100px;
+  cursor: pointer;
+}
+
+.navbar {
+  width: 90%;
+  height: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: slideFadeIn 1s forwards;
+}
+
+button {
+  color: #fbfcfd;
+  padding: 10px 25px;
+  background-color: #d6b10d;
+  border: 3px solid #d6b10d;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #0077b6;
+  border: 3px solid #ffffff;
+  transform: scale(1.08);
+  font-size: 16px;
+  padding: 10px 50px;
+}
+
+.content {
+  color: #fbfcfd;
+  position: absolute;
+  top: 50%;
+  left: 21%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  border-radius: 15px; 
+  padding: 25px; 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+h1 {
+  font-size: 80px;
+  margin: 10px 0 30px;
+  line-height: 80px;
+}
+
+/*AREA 2*/
+.textocomimagem {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.texto {
+  color: #ffffff;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.texto p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e0f7fa;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.texto p strong {
+  color: #00b4d8;
+}
+
+.texto .logo2 {
+  transition: transform 0.4s ease;
+  width: 320px;
+  max-width: 100%;
+}
+
+.texto .logo2:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+.impacto {
+  text-align: center;
+  margin: 120px auto;
+  color: #fff;
+  width: 90%;
+}
+
+.impacto h2 {
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.impacto h3 {
+  font-family: "Baloo", sans-serif;
+}
+
+.impacto-cards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.impacto .card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 50px 20px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.impacto .card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.impacto .card img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.impacto .card h3 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.impacto .card p {
+  font-size: 16px;
+  color: #e0f7fa;
+  line-height: 1.5;
+}
+
+/* Responsivo */
+
+.staff-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 150px 0;
+}
+
+.staff2 {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100%;
+}
+
+.staff-imagens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.staff-imagens img {
+  width: 92%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, filter 0.6s ease;
+}
+
+.staff-imagens:hover img {
+  transform: scale(1.02);
+  filter: grayscale(0.4);
+  cursor: pointer;
+}
+
+.textoJunta h1 {
+  color: #ffffff;
+  text-align: center;
+  margin: 80px 0 40px 0;
+}
+
+h1 span {
+  color: #d6b10d;
+}
+
+/*AREA 3 (FORMULÁRIO)*/
+.imagem-form-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.imagem-form-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  z-index: 3;
+  pointer-events: none;
+}
+.form-lado h2 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+.form-lado,
+.form-lado form,
+.form-lado input,
+.form-lado textarea,
+.button button {
+  box-sizing: border-box;
+}
+
+.imagem-form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 60px;
+  box-sizing: border-box;
+  max-width: none;
+}
+.imagem-form-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.form-lado {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 5px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 60px 40px;
+  min-height: 400px;
+  box-sizing: border-box;
+}
+
+.form-lado form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.form-lado label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: white;
+  font-family: "Baloo", sans-serif;
+}
+
+.form-lado input,
+.form-lado textarea {
+  flex: 1;
+  width: auto;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: white;
+}
+
+.button {
+  text-align: center;
+}
+
+.button button {
+  background-color: #ffffff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: black;
+  box-sizing: border-box;
+  width: 20%;
+  font-family: "Baloo", sans-serif;
+  width: 100%;
+}
+
+.button button:hover {
+  background-color: #d6b10d;
+}
+
+footer {
+  background: #0d2d36;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+  margin: 0;
+}
+
+/*AREA MOBILE*/
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  .texto p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  .texto .logo2 {
+    width: 250px;
+  }
+
+  .imagem-form-section {
+    flex-direction: column;
+    width: 100%;
+    margin: 50px auto;
+  }
+
+  .form-lado button {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .dados-section {
+    width: 25%;
+    padding: 30px 15px;
+  }
+
+  .dados-box {
+    gap: 20px;
+  }
+
+  .staff-section {
+    margin: 50px 0;
+  }
+
+  .staff-imagens {
+    width: 95%;
+  }
+
+  button,
+  .outro {
+    width: 40%;
+    padding: 12px 0;
+  }
+  .textoJunta h1 {
+    font-size: 36px;
+  }
+  .dados-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .divider {
+    width: 80%;
+    height: 2px;
+  }
+
+  .dado h2 {
+    font-size: 40px;
+  }
+
+  .dado p {
+    font-size: 16px;
+  }
+}
+
+button,
+a.button {
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .impacto-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
