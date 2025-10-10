@@ -26,9 +26,7 @@ body {
 h1 {
     font-family: "Sansation", "roboto";
     font-size: 72pt;
-    position: absolute;
-    margin: 0;
-    animation: movimento 8s infinite ease-in-out;
+    margin-top:10%;
 }
 
 .parallax-element {
@@ -43,7 +41,6 @@ h1 {
 h3 {
     font-weight: 700;
     font-size: 36pt;
-    margin-top: 25%;
     margin-bottom: 1%;
     font-family: "Telex", "sans-serif";
 }
@@ -285,7 +282,25 @@ form input[type="submit"] {
 }
 
 @media (max-width: 1050px) {
-
+    h1{
+        font-size: 48pt;
+        margin-top: 60px;
+        margin-bottom:60px;
+    }
+    h2{
+        font-size: 32pt;
+    }
+    h3{
+        font-size: 24pt;
+        margin-top: 30px;
+        margin-bottom: 60px;
+    }
+    #botao{
+        margin-bottom: 30px;
+    }
+    #inicio{
+        margin-bottom: 0;
+    }
     #faq{
         flex-direction: column;
         align-items: center;
@@ -308,5 +323,21 @@ form input[type="submit"] {
     }
     #formulario h2{
         margin-left:10%;
+        margin-top: 0;
+        margin-bottom: 50px;
+    }
+    #formulario{
+        height:900px;
+    }
+    form{
+        opacity: 1 !important;;
+    }
+}
+
+@media (max-width: 650px) {
+    #inicio, #faq, #formulario {
+        height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
