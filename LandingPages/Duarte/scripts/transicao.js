@@ -2,12 +2,12 @@ document.addEventListener('mousemove', (e) => {
     const posicaoX = e.clientX / window.innerWidth;
     const posicaoY = e.clientY / window.innerHeight;
     
-    const elementosComEfeito = document.querySelectorAll('h1, h2, h3, p, #botao');
+    const elementosComEfeito = document.querySelectorAll('h1, h2, h3, p, #botao, #faq img, #formulario form');
     
     elementosComEfeito.forEach(elemento => {
-        const velocidade = 0.02;
-        const moverX = (posicaoX - 0.5) * velocidade * 100;
-        const moverY = (posicaoY - 0.5) * velocidade * 100;
+        const velocidade = 0.05;
+        const moverX = (posicaoX - 0.5) * velocidade * 120;
+        const moverY = (posicaoY - 0.5) * velocidade * 120;
         
         elemento.style.transform = `translate(${moverX}px, ${moverY}px)`;
     });
