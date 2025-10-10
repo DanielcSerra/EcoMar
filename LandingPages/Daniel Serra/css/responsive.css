@@ -6,7 +6,7 @@
 
 @media (max-width: 520px) {
   .hero {
-    padding: clamp(5.5rem, 20vw, 6.4rem) 1rem 10.5rem 1rem;
+    padding: 6rem 1rem 10.5rem 1rem;
   }
   .hero__content {
     padding: 1.6rem 1.3rem;
@@ -14,7 +14,7 @@
     gap: 1rem;
   }
   .hero__content h1 {
-    font-size: clamp(1.85rem, 9vw, 2.4rem);
+    font-size: 2.2rem;
   }
   .hero__content p {
     font-size: 0.95rem;
@@ -28,20 +28,21 @@
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
-    padding: clamp(6rem, 18vw, 7rem) 1.2rem 9rem 1.2rem;
+    padding: 6.5rem 1.2rem 9rem 1.2rem;
     text-align: center;
   }
-  .hero__content-wrapper {
-    width: min(100%, 420px);
+  .hero__content-wrapper,
+  .hero__content {
+    width: 100%;
+    max-width: 420px;
   }
   .hero__content {
-    width: min(100%, 420px);
     padding: 1.8rem 1.6rem;
     gap: 1.1rem;
     align-items: center;
   }
   .hero__content h1 {
-    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-size: 2.4rem;
   }
   .hero__content p {
     font-size: 1rem;
@@ -71,11 +72,13 @@
     display: inline;
   }
   .hero__background .globe__info {
-    max-width: min(88vw, 300px);
+    max-width: 300px;
+    width: 88vw;
     padding: 1.7rem 1.5rem 1.4rem;
   }
   .globe__info {
-    max-width: min(92vw, 320px);
+    max-width: 320px;
+    width: 92vw;
   }
 }
 
@@ -86,6 +89,7 @@
     gap: 0.6rem;
     padding: 0.45rem 0.6rem;
     position: relative;
+    width: 100%;
   }
   .site-nav__toggle {
     display: inline-flex;
@@ -101,7 +105,8 @@
     padding: 1rem 1.4rem 1.3rem;
     border-radius: 20px;
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: 100%;
+    margin-top: 0.5rem;
     left: 0;
     right: 0;
     transform-origin: top;
@@ -141,7 +146,7 @@
     display: none;
   }
   .site-nav {
-    padding: 0.75rem clamp(1rem, 6vw, 1.6rem);
+    padding: 0.75rem 1.4rem;
   }
 
   .site-nav__inner {
@@ -171,6 +176,10 @@
   .timeline__content {
     padding: 1.1rem 1.1rem;
   }
+
+  .timeline__marker {
+    left: 17px;
+  }
   .progress {
     height: 12px;
   }
@@ -178,8 +187,18 @@
     font-size: 0.7rem;
     padding: 0.12rem 0.45rem;
   }
+
+  .section--benefits {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
   .benefits-grid {
     grid-template-columns: 1fr;
+    max-width: 620px;
   }
 }
 
@@ -187,9 +206,10 @@
   .form-layout {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 5rem;
   }
   .form-layout__intro {
+    max-width: 620px;
     order: -1;
   }
   .form__grid {
@@ -203,7 +223,7 @@
     justify-content: center;
   }
   .section--form .form {
-    max-width: 520px;
+    max-width: 620px;
     margin: 0 auto;
     width: 100%;
   }
@@ -211,7 +231,7 @@
 
 @media (min-width: 641px) {
   .site-nav__menu {
-    min-width: clamp(220px, 36vw, 440px);
+    min-width: 360px;
   }
 }
 
@@ -222,7 +242,7 @@
   }
   .steps,
   .benefits {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
   .hero__scroll-hint {
     gap: 1rem;
@@ -239,6 +259,9 @@
   .site-nav__toggle {
     display: none;
   }
+  .to-top {
+    display: none;
+  }
 }
 
 @media (min-width: 1100px) {
@@ -251,6 +274,6 @@
   }
   .hero {
     justify-content: flex-start;
-    padding-left: clamp(3.5rem, 8vw, 7rem);
+    padding-left: 6rem;
   }
 }

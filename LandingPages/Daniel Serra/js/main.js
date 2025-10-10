@@ -91,15 +91,27 @@ if (form && success) {
     const fd = new FormData(form);
     const name = fd.get("name")?.toString().trim();
     const email = fd.get("email")?.toString().trim();
+    const location = fd.get("location")?.toString().trim();
+    const message = fd.get("message")?.toString().trim();
 
     if (!name || !email) {
       showMessage("Por favor, preenche os campos obrigatórios.", false);
+      return;
+    }
+    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]{2,}$/;
+    if (!namePattern.test(name)) {
+      showMessage("O nome só pode conter letras e espaços.", false);
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
       showMessage("Por favor, insere um email válido.", false);
+      return;
+    }
+
+    if (message && message.length < 5) {
+      showMessage("A mensagem é muito curta.", false);
       return;
     }
 
@@ -116,3 +128,27 @@ if (form && success) {
     if (successState) setTimeout(() => (success.textContent = ""), 6000);
   }
 }
+
+(function () {
+  const btn = document.getElementById("toTop");
+  const SHOW_AFTER = 200;
+
+  function onScroll() {
+    if (window.innerWidth <= 880 && window.pageYOffset > SHOW_AFTER) {
+      btn.classList.add("is-visible");
+    } else {
+      btn.classList.remove("is-visible");
+    }
+  }
+
+  function scrollToTop(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  btn.addEventListener("click", scrollToTop);
+
+  onScroll();
+})();
