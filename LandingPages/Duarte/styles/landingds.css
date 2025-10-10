@@ -1,0 +1,285 @@
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-image: url(../media/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+    height: 300vh;
+    overflow-y: scroll; 
+    font-family: "Vollkorn", sans-serif;
+}
+
+#inicio, #faq, #formulario {
+    width: 100vw;
+    height: 100vh;
+}
+
+#faq, #formulario {
+    position: relative;
+}
+
+h1 {
+    font-family: "Sansation", "roboto";
+    font-size: 72pt;
+    position: absolute;
+    margin: 0;
+    animation: movimento 8s infinite ease-in-out;
+}
+
+.parallax-element {
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+#logo {
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-weight: bolder;
+    font-size: 36pt;
+    margin-top: 25%;
+    margin-bottom: 1%;
+    font-family: "Telex", "sans-serif";
+}
+
+p {
+    font-size: 16pt;
+    margin-top: 15%;
+    font-family: "Vollkorn", serif;
+}
+
+h2 {
+    font-size: 42pt;
+    font-weight: bold;
+    font-family: "Telex", sans-serif;
+}
+
+#faq h2 {
+    margin-bottom: 60%;
+}
+
+#botao {
+    margin-top: 10px;
+    margin-bottom: -100px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid blue;
+    border-radius: 11px;
+    width: 250px;
+    height: 80px;
+    font-size: 24pt;
+    font-family: "Vollkorn", sans-serif;
+    text-decoration: none;
+    color: inherit;
+    line-height: 60pt;
+}
+
+#botao:hover {
+    cursor: pointer;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+#faq {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+    padding: 3%;
+    box-sizing: border-box; 
+    overflow: hidden;
+}
+
+#faq img {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formulario h2 {
+    color: white;
+    margin-top: -100px;
+    margin-bottom: 100px;
+}
+
+#formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#formulario img {
+    position: absolute;
+    margin: 0;
+}
+
+.esquerda, .direita {
+    position: relative;
+    z-index: 1;
+}
+
+.direita, .meio, .esquerda {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 40%;
+}
+
+.meio h2, .direita h2 {
+    opacity: 0;
+}
+
+.esquerda, .meio, .direita {
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.esquerda {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.meio {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.direita {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+.esquerda.visivel {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.meio.visivel {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.direita.visivel {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.esquerda.oculto {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.meio.oculto {
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.direita.oculto {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+#formulario form {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+#formulario form.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#formulario form.oculto {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"] {
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    background: white;
+    margin-bottom: 20px;
+}
+
+form input[type="email"] {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(223, 253, 252);
+    border-radius: 15px;
+    border: 2px solid blue;
+    padding: 30px;
+}
+
+#pnome, #telefone {
+    width: 45%;
+    margin-right: 20px;
+}
+
+form input[type="number"]::-webkit-outer-spin-button,
+form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+form input[type="number"] {
+    -moz-appearance: textfield; 
+    -webkit-appearance: none; 
+    appearance: none; 
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="number"] {
+    background: rgba(255, 255, 255, 0);
+    border-bottom: 2px solid black;
+    border-radius: 0px;
+}
+
+form input::placeholder {
+    color: rgba(0, 0, 0, 0.65); 
+    font-weight: bold;
+    font-family: "Vollkorn", sans-serif;
+    font-size: 12pt;
+}
+
+form input[type="submit"] {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 24pt;
+    font-family: "Protest Revolution", sans-serif;
+    transition: transform 0.5s ease-in;
+    text-decoration: none;
+    color: inherit;
+    align-self: center;
+}
