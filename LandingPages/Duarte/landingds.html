@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Telex&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/landingds.css">
+    <title>EcoMar</title>
+</head>
+<body>
+    <section id="inicio">
+        <a href="#formulario" id="botao">Voluntaria-te</a>
+        <h1>EcoMar</h1>
+        <h3>Ajude-nos a proteger o oceano</h3>
+    </section>
+    <section id="faq">
+        <div class="esquerda">
+            <h2>Sabia que</h2>
+            <img src="media/water-pollution.png" id="img1" alt="Poluição da água">
+            <p>Com o plástico a invadir a nossa cadeia alimentar – ingerimos o equivalente a um cartão de crédito por semana –, recusar os descartáveis faz uma enorme diferença.</p>
+        </div>
+        <div class="meio">
+            <h2>Sabia que</h2>
+            <img src="media/coral.png" id="img2" alt="Coral marinho">
+            <p>Os oceanos produzem mais de 50% do oxigénio do planeta. Protegê-los não é só salvar a vida marinha, é garantir o ar que respiramos.</p>
+        </div>
+        <div class="direita">
+            <h2>Sabia que</h2>
+            <img src="media/turtle.png" id="img3" alt="Tartaruga marinha">
+            <p>Cada ano, 100.000 animais marinhos morrem vítimas do lixo plástico. Reduzir o consumo de plástico é um ato de compaixão pela vida nos oceanos.</p>
+        </div>
+    </section>
+    <section id="formulario">
+        <h2>Junte-se a nós na proteção do oceano</h2>
+        <form>
+            <div id="formhorizontal">
+                <input type="text" id="pnome" name="pnome" placeholder="Nome">
+                <input type="text" id="lnome" name="lnome" placeholder="Sobrenome">
+            </div>
+            <input type="email" id="email" name="email" placeholder="email@exemplo.com">
+            <div id="formhorizontal">
+                <input type="tel" id="telefone" name="telefone" placeholder="912 345 678">
+                <input type="number" id="idade" name="idade" placeholder="20">
+            </div>
+            <input type="submit" value="Candidatar"/>
+        </form>
+    </section>
+
+    <audio id="bginicio" src="media/inicio.mp3" preload="auto" loop volume="0.1"></audio>
+    <audio id="bgfaq" src="media/faq.mp3" preload="auto" loop volume="0.1"></audio>
+    <audio id="bgformulario" src="media/formulario.mp3" preload="auto" loop></audio>
+    <script src="scripts/transicao.js"></script>
+</body>
+</html>
