@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proteção Marítima - Seja Voluntário</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #003366;
+      color: #fff;
+      line-height: 1.6;
+    }
+    .hero {
+  
+  background-image:url('BG.jpeg') ;
+  background-size: cover;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+    }
+
+
+    .hero-content {
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4); /* leve fundo para contraste */
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-button {
+  border: 2px solid white;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: white;
+  color: #003366;
+}
+
+   
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1em;
+    }
+
+    .cta-button {
+      background: #ffcc00;
+      color: #003366;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #ffdb4d;
+    }
+
+    /* Cards modernos com imagem de fundo */
+    .cards-modern {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card-modern {
+      position: relative;
+      width: 280px;
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .card-modern:hover {
+      transform: scale(1.03);
+    }
+
+    .card-modern::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+    }
+
+    .card-content h3 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    .arrow {
+      font-size: 1.5em;
+      color: #ff3c3c;
+      margin-left: auto;
+    }
+
+    /* Formulário */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+
+    form button {
+      background-color: #ffcc00;
+      color: #003366;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #ffdb4d;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .cards-modern {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      section h2 {
+        font-size: 1.7em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ 
+   <section class="hero" id="home">
+    <div class="hero-content">
+  <h1>Junte-se à Proteção Marinha</h1>
+  <p>Contribua para um oceano mais limpo e saudável. Faça parte da mudança!</p>
+  <a href="#formulario" class="hero-button">Seja Voluntário</a>
+</div>
+
+   
+  </section>
+
+  <section>
+    <h2>Por que proteger os oceanos?</h2>
+    <p>Os oceanos são essenciais para o nosso planeta. Precisam de nós mais do que nunca. Através do voluntariado, você pode fazer parte da mudança.</p>
+    <a href="#formulario" class="cta-button">Quero ser voluntário</a>
+  </section>
+
+  <section>
+    <h2>O que fazemos</h2>
+    <div class="cards-modern">
+      <div class="card-modern" style="background-image: url('pexels-ron-lach-9034680.jpg');">
+        <div class="card-content">
+          <h3>Limpeza de Praias</h3>
+          <span class="arrow">➜</span>
+        </div>
+      </div>
+      <div class="card-modern" style="background-image: url('pexels-eliannedipp-4666751.jpg');">
+        <div class="card-content">
+          <h3>Educação Ambiental</h3>
+          <span class="arrow">➜</span>
+        </div>
+      </div>
+      <div class="card-modern" style="background-image: url('pexels-photo-1076758.jpeg');">
+        <div class="card-content">
+          <h3>Preservação Marinha</h3>
+          <span class="arrow">➜</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formulario">
+    <h2>Inscreva-se como voluntário</h2>
+    <p>Preencha o formulário abaixo e entraremos em contacto contigo!</p>
+    <form action="" method="POST">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="4" placeholder="Por que queres ser voluntário?"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  
+
+</body>
+</html>
